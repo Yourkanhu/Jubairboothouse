@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Responsive Design Test - Jubair Boot House</title>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo -->
+            <div class="navbar-brand brand-container">
+                <div class="brand-logo">
+                    <img src="/static/images/logo.png" alt="Jubair Boot House Logo" class="logo-icon">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Jubair Boot House</span>
+                    <span class="brand-tagline">A Premium Footwear Store</span>
+                </div>
+            </div>
+            
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products/">
+                            <i class="fas fa-shopping-bag me-2"></i>Catalog
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Enhanced Search Bar with Filter Icon -->
+                <form class="d-flex me-3" action="/products/" method="GET">
+                    <div class="input-group search-group">
+                        <input class="form-control" type="search" name="search" placeholder="Search for shoes..." 
+                               aria-label="Search" value="">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary d-none d-md-inline" id="filterToggle" title="Show Filters">
+                            <i class="fas fa-filter"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary d-md-none" id="filterToggleMobile" title="Show Filters">
+                            <i class="fas fa-filter"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Filter Dropdown Panel -->
+                <div class="filter-dropdown" id="filterDropdown">
+                    <div class="filter-header">
+                        <h6 class="mb-0">
+                            <i class="fas fa-filter me-2"></i>Filter Products
+                        </h6>
+                        <button type="button" class="btn-close" id="closeFilter" aria-label="Close"></button>
+                    </div>
+                    <form method="GET" action="/products/" class="filter-form">
+                        <div class="filter-group">
+                            <label for="filterCategory" class="form-label">
+                                <i class="fas fa-tags me-2 text-primary"></i>Category
+                            </label>
+                            <select class="form-select" id="filterCategory" name="category">
+                                <option value="">All Categories</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Casual">Casual</option>
+                                <option value="Formal">Formal</option>
+                                <option value="Boots">Boots</option>
+                                <option value="Sneakers">Sneakers</option>
+                                <option value="Sandals">Sandals</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterSize" class="form-label">
+                                <i class="fas fa-ruler me-2 text-primary"></i>Size
+                            </label>
+                            <select class="form-select" id="filterSize" name="size">
+                                <option value="">All Sizes</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterStatus" class="form-label">
+                                <i class="fas fa-circle-check me-2 text-primary"></i>Status
+                            </label>
+                            <select class="form-select" id="filterStatus" name="status">
+                                <option value="">All Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-actions">
+                            <button type="submit" class="btn btn-primary btn-sm w-100 mb-2">
+                                <i class="fas fa-filter me-2"></i>Apply Filters
+                            </button>
+                            <a href="/products/" class="btn btn-outline-secondary btn-sm w-100">
+                                <i class="fas fa-times me-2"></i>Clear All
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Login Buttons -->
+                <div class="navbar-nav">
+                    <a href="/admin/login" class="admin-login-btn">
+                        <i class="fas fa-user-shield me-2"></i>Admin Login
+                    </a>
+                    <a href="/user/login" class="user-login-btn">
+                        <i class="fas fa-user me-2"></i>User Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <div class="container mt-5 pt-5">
+            <!-- Test Hero Section -->
+            <section class="hero-section position-relative overflow-hidden mb-5">
+                <div class="hero-bg-pattern"></div>
+                <div class="container">
+                    <div class="row align-items-center min-vh-50">
+                        <div class="col-lg-6">
+                            <div class="hero-content text-white">
+                                <h1 class="display-3 fw-bold mb-4 hero-title">
+                                    <span class="text-accent">Premium</span> Footwear
+                                    <br>for Every Style
+                                </h1>
+                                <p class="lead mb-4 hero-subtitle">
+                                    Discover the perfect blend of comfort, style, and quality. 
+                                    From casual kicks to formal elegance, we've got your feet covered.
+                                </p>
+                                <div class="hero-buttons d-flex flex-wrap gap-3">
+                                    <a href="/products/" class="btn btn-warning btn-lg px-5 py-3 hero-btn">
+                                        <i class="fas fa-store me-2"></i>Visit Showroom
+                                    </a>
+                                    <a href="#categories" class="btn btn-outline-light btn-lg px-4 py-3 hero-btn-outline">
+                                        <i class="fas fa-th-large me-2"></i>Explore Categories
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hero-image-container position-relative">
+                                <div class="hero-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Premium Footwear Collection" 
+                                         class="hero-main-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Test Categories Section -->
+            <section id="categories" class="section-padding bg-pattern">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center mb-5">
+                            <h2 class="display-5 fw-bold text-primary mb-3">Product Categories</h2>
+                            <p class="lead text-muted">Explore our diverse collection of footwear</p>
+                            <div class="title-underline mx-auto"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="category-card category-card-equal">
+                                <div class="category-icon">
+                                    <i class="fas fa-boot"></i>
+                                </div>
+                                <h5>Boots</h5>
+                                <p>Stylish and durable boots for all occasions</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="category-card category-card-equal">
+                                <div class="category-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <h5>Sneakers</h5>
+                                <p>Comfortable and trendy sneakers for daily wear</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="category-card category-card-equal">
+                                <div class="category-icon">
+                                    <i class="fas fa-sandal"></i>
+                                </div>
+                                <h5>Sandals</h5>
+                                <p>Lightweight and breathable sandals for summer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Test Product Cards -->
+            <section class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center mb-5">
+                            <h2 class="display-5 fw-bold text-primary mb-3">Featured Products</h2>
+                            <p class="lead text-muted">Discover our latest arrivals</p>
+                            <div class="title-underline mx-auto"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="product-card hover-lift">
+                                <div class="product-image-container">
+                                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         class="product-image" alt="Product">
+                                    <div class="product-overlay">
+                                        <div class="product-status-badge">
+                                            <span class="badge bg-success">Available</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="product-details">
+                                    <h5 class="product-title">Premium Leather Boots</h5>
+                                    <p class="product-description text-muted small">
+                                        High-quality leather boots with excellent craftsmanship and durability.
+                                    </p>
+                                    
+                                    <div class="product-meta">
+                                        <div class="row text-center">
+                                            <div class="col-6">
+                                                <small class="text-muted d-block">Category</small>
+                                                <div class="fw-bold text-primary">Boots</div>
+                                            </div>
+                                            <div class="col-6">
+                                                <small class="text-muted d-block">Available Sizes</small>
+                                                <div class="sizes-display">
+                                                    <span class="badge bg-primary me-1">8</span>
+                                                    <span class="badge bg-primary me-1">9</span>
+                                                    <span class="badge bg-primary me-1">10</span>
+                                                    <span class="badge bg-secondary">+3</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-price-section">
+                                        <div class="product-price">₹2,499.00</div>
+                                        <div class="product-actions">
+                                            <button class="btn btn-outline-primary btn-sm px-3">
+                                                <i class="fas fa-heart me-1"></i>Add to Favourites
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="product-card hover-lift">
+                                <div class="product-image-container">
+                                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         class="product-image" alt="Product">
+                                    <div class="product-overlay">
+                                        <div class="product-status-badge">
+                                            <span class="badge bg-danger">Out of Stock</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="product-details">
+                                    <h5 class="product-title">Casual Sneakers</h5>
+                                    <p class="product-description text-muted small">
+                                        Comfortable and stylish sneakers perfect for everyday wear.
+                                    </p>
+                                    
+                                    <div class="product-meta">
+                                        <div class="row text-center">
+                                            <div class="col-6">
+                                                <small class="text-muted d-block">Category</small>
+                                                <div class="fw-bold text-primary">Sneakers</div>
+                                            </div>
+                                            <div class="col-6">
+                                                <small class="text-muted d-block">Available Sizes</small>
+                                                <div class="sizes-display">
+                                                    <span class="badge bg-primary me-1">7</span>
+                                                    <span class="badge bg-primary me-1">8</span>
+                                                    <span class="badge bg-secondary">+2</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-price-section">
+                                        <div class="product-price">₹1,899.00</div>
+                                        <div class="product-actions">
+                                            <button class="btn btn-outline-primary btn-sm px-3">
+                                                <i class="fas fa-heart me-1"></i>Add to Favourites
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Test Forms -->
+            <section class="section-padding bg-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center mb-5">
+                            <h2 class="display-5 fw-bold text-primary mb-3">Contact Form</h2>
+                            <p class="lead text-muted">Get in touch with us</p>
+                            <div class="title-underline mx-auto"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="firstName" class="form-label">
+                                                    <i class="fas fa-user me-2 text-primary"></i>First Name
+                                                </label>
+                                                <input type="text" class="form-control" id="firstName" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="lastName" class="form-label">
+                                                    <i class="fas fa-user me-2 text-primary"></i>Last Name
+                                                </label>
+                                                <input type="text" class="form-control" id="lastName" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">
+                                                <i class="fas fa-envelope me-2 text-primary"></i>Email
+                                            </label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">
+                                                <i class="fas fa-comment me-2 text-primary"></i>Message
+                                            </label>
+                                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="py-5" id="mainFooter">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-section">
+                        <h5 class="mb-3">
+                            <i class="fas fa-shoe-prints me-2 text-warning"></i>
+                            Jubair Boot House
+                        </h5>
+                        <p class="mb-3">Since 2007, we have been offering customers the latest collections of branded footwear — from casual sneakers to stylish boots — all under one roof.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="mb-3">Quick Links</h6>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/products/">Products</a></li>
+                            <li><a href="/#categories">Categories</a></li>
+                            <li><a href="/about">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="mb-3">Customer Service</h6>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="/shipping">Shipping Info</a></li>
+                            <li><a href="/returns">Returns</a></li>
+                            <li><a href="/size-guide">Size Guide</a></li>
+                            <li><a href="/faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h6 class="mb-3">Contact Info</h6>
+                        <div class="contact-info">
+                            <p class="mb-2">
+                                <i class="fas fa-phone me-2 text-warning"></i>
+                                +91 7705925627
+                            </p>
+                            <p class="mb-2">
+                                <i class="fas fa-envelope me-2 text-warning"></i>
+                                jubersiddique33@gmail.com
+                            </p>
+                            <p class="mb-2">
+                                <i class="fas fa-map-marker-alt me-2 text-warning"></i>
+                                Sohasa mod Tekuatar Kushinagar, UP, India
+                            </p>
+                            <p class="mb-0">
+                                <i class="fas fa-clock me-2 text-warning"></i>
+                                Mon-Sat: 9AM-8PM
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4 border-light">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Jubair Boot House. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-bottom-links">
+                        <a href="/privacy">Privacy Policy</a>
+                        <span class="mx-2">•</span>
+                        <a href="/terms">Terms of Service</a>
+                        <span class="mx-2">•</span>
+                        <a href="/cookies">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Test</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">Test</a>
+            
+            <div class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-home me-2"></i>Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-bag me-2"></i>Catalog
+                    </a>
+                </li>
+                <li class="nav-item" id="adminNavItem" style="display: none;">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user-shield me-2"></i>Admin
+                    </a>
+                </li>
+            </div>
+            
+            <div class="navbar-nav ms-auto">
+                <div class="dropdown">
+                    <a class="nav-link admin-profile-btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-shield me-2"></i>Admin User
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Dropdown Test</h1>
+        <p>Click on the admin profile button in the navbar to test the dropdown functionality.</p>
+        <p>The admin navigation item should be visible when logged in as admin.</p>
+        
+        <div class="mt-4">
+            <h3>Test Controls</h3>
+            <button class="btn btn-primary me-2" onclick="showAdminNav()">Show Admin Nav</button>
+            <button class="btn btn-secondary me-2" onclick="hideAdminNav()">Hide Admin Nav</button>
+            <button class="btn btn-success me-2" onclick="simulateUserLogin()">Simulate User Login</button>
+            <button class="btn btn-warning" onclick="simulateAdminLogin()">Simulate Admin Login</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function showAdminNav() {
+            document.getElementById('adminNavItem').style.display = 'block';
+        }
+        
+        function hideAdminNav() {
+            document.getElementById('adminNavItem').style.display = 'none';
+        }
+        
+        function simulateUserLogin() {
+            // Simulate user login - admin nav should be hidden
+            hideAdminNav();
+            console.log('Simulated user login - admin nav hidden');
+        }
+        
+        function simulateAdminLogin() {
+            // Simulate admin login - admin nav should be visible
+            showAdminNav();
+            console.log('Simulated admin login - admin nav visible');
+        }
+    </script>
+</body>
+</html>
